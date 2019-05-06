@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>User login/logout with datastore</title>
+</head>
+<body>
+{% if user %}
+WELCOME <a href="/delete/{{ DetailsOfTweet.user_name }}">{{ detailsOfTweet.user_name }}</a><br/>(<a href="/edit">Edit Profile</a>)
+<br/>DESC:<br/>{{ DetailsOfTweet.desc }}<br/><br/>
+Followers:{{ listOfFollowers }}<br/>
+Following:{{ listOfFollowing }}<br/>
+<br/>Tweet:<br/>
+<form method='post' action='/edit'>
+<input style="height:200px;width:1000px;font-size:14pt;" type='text' name='tweet' required='True' maxlength="280"/>
+<br/><input type='submit' name='button' value='Submit'/>
+</form>
+<br/>
+Search User:
+<form method='get' action='/'>
+<input type='text' name='searchuser'/>
+<br/>
+<input type='submit' name='button' value='Search'/>
+</form>
+{% if i==1 %}
+<a href="/profilepage/{{ finaluser }}">{{ final_user }}</a>
+{% else %}
+{% endif %}
+<form method='get' action='/'>
+<input type='text' name='searchtweet'/>
+<br/>
+<input type='submit' name='button' value='Tweet Search'/>
+</form>
+
+Search for tweets here:<br/>
+{% if j>0 %}
+{% for x in finaltweet %}
+{{ x }}<br/>
+{% endfor %}
+<br/>
+
+{% else %}
+{% endif %}
+<br/>TIMELINE:<br/>
+USERNAME --> TWEET<br/>
+{% for i in tweetf %}
+<br/>
+{{ i }}
+{% endfor %}
+
+
+{% else %}
+Twitter
+{% endif %}
+<p>you can {{ url_string }} <a href='{{ url }}'>here</a></p>
+</body>
+</html>

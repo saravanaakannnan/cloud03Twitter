@@ -1,0 +1,21 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Update User information</title>
+</head>
+<body>
+USERNAMES:<br/>{{ detailsOfTweet.user_name }}<br/>
+<br/>DESC:<br/>{{ detailsOfTweet.user_name }}<br/>
+<br/>TWEET:<br/><br/>
+{% for k in list %}
+<form method="post" action="/delete/{{ detailsOfTweet.user_name }}">
+<input type="text" name="users_name" value="{{ k }}"/>
+<input type="hidden" value="{{ loop.index }}" name="index"/>
+<input type="submit" value="Edit" name="button"/>
+<br/>
+<input type="submit" name="button" value="delete"/></form>
+<br/>
+{% endfor %}
+<br/><a href='/'>HOME</a>
+</body>
+</html>
